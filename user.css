@@ -1,0 +1,760 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap");
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    background: #fff7df;
+    color: #222;
+}
+
+
+/* =========================================
+   MAIN BACKGROUND
+========================================= */
+
+main {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 255, 255, 0.8) 0,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #ffca05,
+            #ffb300
+        );
+}
+
+
+/* =========================================
+   LOGIN CONTAINER
+========================================= */
+
+.login-container {
+    position: relative;
+
+    width: 100%;
+    max-width: 1050px;
+
+    min-height: 650px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   LEFT LOGIN PANEL
+========================================= */
+
+.login-panel {
+    position: relative;
+
+    width: 52%;
+
+    padding: 55px 70px;
+
+    background: #fff;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.brand {
+    margin-bottom: 30px;
+}
+
+.brand img {
+    width: 180px;
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form {
+    width: 100%;
+    max-width: 420px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+
+/* SIGN UP DEFAULT HIDDEN */
+
+.sign-up-form {
+    position: absolute;
+
+    top: 125px;
+    left: 70px;
+    right: 70px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateX(30px);
+}
+
+
+/* =========================================
+   SIGN UP MODE
+========================================= */
+
+main.sign-up-mode .sign-in-form {
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform: translateX(-30px);
+}
+
+main.sign-up-mode .sign-up-form {
+    opacity: 1;
+
+    pointer-events: all;
+
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+    margin-bottom: 28px;
+}
+
+.welcome {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #f4ad00;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+.heading h1 {
+    margin-bottom: 10px;
+
+    color: #1e1e1e;
+
+    font-size: 34px;
+    line-height: 1.15;
+
+    font-weight: 800;
+}
+
+.heading p {
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    max-width: 370px;
+}
+
+
+/* =========================================
+   INPUT GROUP
+========================================= */
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUT BOX
+========================================= */
+
+.input-box {
+    position: relative;
+
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1.5px solid #e4e4e4;
+
+    border-radius: 13px;
+
+    background: #fff;
+
+    transition: all 0.3s ease;
+}
+
+.input-box:focus-within {
+    border-color: #ffbd00;
+
+    box-shadow:
+        0 0 0 4px rgba(255, 189, 0, 0.12);
+}
+
+.input-box > i:first-child {
+    margin-left: 16px;
+
+    color: #aaa;
+
+    font-size: 21px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 15px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #222;
+
+    font-family: "Jost", sans-serif;
+
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================================
+   PASSWORD BUTTON
+========================================= */
+
+.password-toggle {
+    width: 45px;
+    height: 45px;
+
+    margin-right: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    cursor: pointer;
+
+    font-size: 20px;
+}
+
+.password-toggle:hover {
+    color: #f3ad00;
+}
+
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.form-options {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 3px 0 20px;
+
+    font-size: 12px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #777;
+
+    cursor: pointer;
+}
+
+.remember input {
+    accent-color: #ffb900;
+}
+
+.forgot {
+    color: #e8a600;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.sign-btn {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #ffbd00;
+
+    color: #fff;
+
+    font-family: "Jost", sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(255, 189, 0, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.sign-btn i {
+    font-size: 20px;
+
+    transition: transform 0.3s ease;
+}
+
+.sign-btn:hover {
+    background: #ff9f00;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(255, 159, 0, 0.3);
+}
+
+.sign-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.divider {
+    position: relative;
+
+    margin: 20px 0;
+
+    height: 1px;
+
+    background: #eee;
+
+    text-align: center;
+}
+
+.divider span {
+    position: relative;
+
+    top: -9px;
+
+    padding: 0 12px;
+
+    background: #fff;
+
+    color: #aaa;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   SWITCH TEXT
+========================================= */
+
+.switch-text {
+    text-align: center;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+.switch-text a {
+    color: #e8a600;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.terms input {
+    margin-top: 3px;
+
+    accent-color: #ffb900;
+}
+
+.terms a {
+    color: #e8a600;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   RIGHT VISUAL PANEL
+========================================= */
+
+.visual-panel {
+    position: relative;
+
+    width: 48%;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffca05,
+            #ffad00
+        );
+}
+
+
+/* =========================================
+   VISUAL CONTENT
+========================================= */
+
+.visual-content {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.image-circle {
+    width: 245px;
+    height: 245px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.15);
+
+    overflow: hidden;
+}
+
+.image-circle img {
+    width: 210px;
+    height: 210px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   RIGHT TEXT
+========================================= */
+
+.small-title {
+    color: rgba(255,255,255,0.85);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.visual-content h2 {
+    margin: 8px 0 10px;
+
+    color: #fff;
+
+    font-size: 50px;
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.visual-content p {
+    color: rgba(255,255,255,0.95);
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.dots {
+    display: flex;
+
+    gap: 7px;
+
+    margin-top: 25px;
+}
+
+.dots span {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.5);
+}
+
+.dots span.active {
+    width: 25px;
+
+    border-radius: 10px;
+
+    background: #fff;
+}
+
+
+/* =========================================
+   DECORATIONS
+========================================= */
+
+.decor {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+}
+
+.decor-one {
+    width: 300px;
+    height: 300px;
+
+    top: -100px;
+    right: -100px;
+}
+
+.decor-two {
+    width: 180px;
+    height: 180px;
+
+    bottom: -60px;
+    left: -60px;
+}
+
+.decor-three {
+    width: 70px;
+    height: 70px;
+
+    top: 100px;
+    left: 35px;
+
+    background: rgba(255,255,255,0.2);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    main {
+        padding: 20px;
+    }
+
+    .login-container {
+        max-width: 600px;
+    }
+
+    .visual-panel {
+        display: none;
+    }
+
+    .login-panel {
+        width: 100%;
+
+        padding: 45px 60px;
+    }
+
+    .sign-up-form {
+        left: 60px;
+        right: 60px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    main {
+        padding: 12px;
+    }
+
+    .login-container {
+        min-height: 620px;
+
+        border-radius: 25px;
+    }
+
+    .login-panel {
+        padding: 30px 25px;
+    }
+
+    .brand img {
+        width: 150px;
+    }
+
+    .heading h1 {
+        font-size: 28px;
+    }
+
+    .heading p {
+        font-size: 13px;
+    }
+
+    .sign-up-form {
+        left: 25px;
+        right: 25px;
+    }
+
+    .form-options {
+        font-size: 11px;
+    }
+}

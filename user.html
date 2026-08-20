@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Happy Seoul</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+
+<main id="main">
+
+    <div class="login-container">
+
+        <!-- ================= LEFT SIDE ================= -->
+        <section class="login-panel">
+
+            <div class="brand">
+                <a href="Home.html">
+                    <img src="logo.PNG" alt="Happy Seoul Logo">
+                </a>
+            </div>
+
+            <!-- SIGN IN -->
+            <form class="form sign-in-form" action="Home.html">
+
+                <div class="heading">
+                    <span class="welcome">WELCOME BACK!</span>
+                    <h1>Sign in to Happy Seoul</h1>
+                    <p>
+                        Keep your favorite photocards, sleeves and
+                        collectibles close to you.
+                    </p>
+                </div>
+
+                <div class="input-group">
+                    <label for="login-name">Username</label>
+
+                    <div class="input-box">
+                        <i class='bx bx-user'></i>
+
+                        <input
+                            type="text"
+                            id="login-name"
+                            placeholder="Enter your username"
+                            minlength="4"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+
+                    <div class="input-box">
+                        <i class='bx bx-lock-alt'></i>
+
+                        <input
+                            type="password"
+                            id="login-password"
+                            placeholder="Enter your password"
+                            minlength="4"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('login-password', this)"
+                        >
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+
+                    <a href="#" class="forgot">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <button type="submit" class="sign-btn">
+                    Sign In
+                    <i class='bx bx-right-arrow-alt'></i>
+                </button>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <a href="#" class="toggle">Create one</a>
+                </p>
+
+            </form>
+
+
+            <!-- SIGN UP -->
+            <form class="form sign-up-form" action="Home.html">
+
+                <div class="heading">
+                    <span class="welcome">JOIN HAPPY SEOUL!</span>
+
+                    <h1>Create an account</h1>
+
+                    <p>
+                        Start building your own collection
+                        of cute and unique photocards.
+                    </p>
+                </div>
+
+                <div class="input-group">
+                    <label for="signup-name">Username</label>
+
+                    <div class="input-box">
+                        <i class='bx bx-user'></i>
+
+                        <input
+                            type="text"
+                            id="signup-name"
+                            placeholder="Choose a username"
+                            minlength="4"
+                            autocomplete="username"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+
+                    <div class="input-box">
+                        <i class='bx bx-envelope'></i>
+
+                        <input
+                            type="email"
+                            id="signup-email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+
+                    <div class="input-box">
+                        <i class='bx bx-lock-alt'></i>
+
+                        <input
+                            type="password"
+                            id="signup-password"
+                            placeholder="Create a password"
+                            minlength="4"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('signup-password', this)"
+                        >
+                            <i class='bx bx-show'></i>
+                        </button>
+                    </div>
+                </div>
+
+                <label class="terms">
+                    <input type="checkbox" required>
+
+                    <span>
+                        I agree to the
+                        <a href="#">Terms of Service</a>
+                        and
+                        <a href="#">Privacy Policy</a>.
+                    </span>
+                </label>
+
+                <button type="submit" class="sign-btn">
+                    Create Account
+                    <i class='bx bx-right-arrow-alt'></i>
+                </button>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <a href="#" class="toggle">Sign in</a>
+                </p>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= RIGHT SIDE ================= -->
+        <section class="visual-panel">
+
+            <div class="decor decor-one"></div>
+            <div class="decor decor-two"></div>
+            <div class="decor decor-three"></div>
+
+            <div class="visual-content">
+
+                <div class="image-circle">
+                    <img src="smile.jpg" alt="Happy Seoul Mascot">
+                </div>
+
+                <span class="small-title">
+                    WELCOME TO
+                </span>
+
+                <h2>
+                    HAPPY<br>
+                    SEOUL!
+                </h2>
+
+                <p>
+                    Collect happiness.<br>
+                    Keep your memories.<br>
+                    Be happy with Happy Seoul!
+                </p>
+
+                <div class="dots">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    /* ===============================
+       SIGN IN / SIGN UP SWITCH
+    =============================== */
+
+    const main = document.getElementById("main");
+    const toggles = document.querySelectorAll(".toggle");
+
+    toggles.forEach(toggle => {
+
+        toggle.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            main.classList.toggle("sign-up-mode");
+
+        });
+
+    });
+
+
+    /* ===============================
+       SHOW / HIDE PASSWORD
+    =============================== */
+
+    function togglePassword(inputId, button) {
+
+        const input = document.getElementById(inputId);
+        const icon = button.querySelector("i");
+
+        if (input.type === "password") {
+
+            input.type = "text";
+
+            icon.classList.remove("bx-show");
+            icon.classList.add("bx-hide");
+
+        } else {
+
+            input.type = "password";
+
+            icon.classList.remove("bx-hide");
+            icon.classList.add("bx-show");
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

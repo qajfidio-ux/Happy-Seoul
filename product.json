@@ -1,0 +1,242 @@
+[
+    {
+        "id": 1,
+        "category": "Acrylic PC Holder with Keyring",
+        "name": "Pick Me Up",
+        "brand": "by Jankisyu",
+        "price": 350,
+        "image": "prods/Pick Me Up by Jankisyu.jpg"
+    },
+    {
+        "id": 2,
+        "category": "Acrylic PC Holder with Keyring",
+        "name": "Home",
+        "brand": "by Gogoma",
+        "price": 350,
+        "image": "prods/Home by Gogoma.jpg"
+    },
+    {
+        "id": 3,
+        "category": "Acrylic PC Holder with Keyring",
+        "name": "Hey, I Love You!",
+        "brand": "by @parcxdoodly",
+        "price": 350,
+        "image": "prods/Hey, I Love You! by @parcxdoodly.jpg"
+    },
+    {
+        "id": 4,
+        "category": "Acrylic PC Holder with Keyring",
+        "name": "Love Mono",
+        "brand": "by Purple Goods",
+        "price": 350,
+        "image": "prods/Love Mono by Purple Goods.PNG"
+    },
+    {
+        "id": 5,
+        "category": "Acrylic PC Holder with Stand",
+        "name": "Garden Butterfly",
+        "brand": "by Xisite",
+        "price": 750,
+        "image": "prods/Garden Butterfly by Xisite.webp"
+    },
+    {
+        "id": 6,
+        "category": "Acrylic PC Holder with Stand",
+        "name": "Love You",
+        "brand": "by Kefley",
+        "price": 500,
+        "image": "prods/Love You by Kefley.webp"
+    },
+    {
+        "id": 7,
+        "category": "Acrylic PC Holder with Stand",
+        "name": "Moon",
+        "brand": "by MWRDSM",
+        "price": 450,
+        "image": "prods/Moon by MWRDSM.jpg"
+    },
+    {
+        "id": 8,
+        "category": "Acrylic PC Holder with Stand",
+        "name": "Angel Bow",
+        "brand": "by Omxiloyi",
+        "price": 550,
+        "image": "prods/Angel Bow by Omxiloyi.webp"
+    },
+    {
+        "id": 9,
+        "category": "PVC PC Holder",
+        "name": "Cinnammoroll",
+        "brand": "by Ducky World x Sanrio",
+        "price": 250,
+        "image": "prods/Cinnamoroll by Ducky World x Sanrio.jpg"
+    },
+    {
+        "id": 10,
+        "category": "PVC PC Holder",
+        "name": "Meowstar Black",
+        "brand": "by Ducky World",
+        "price": 250,
+        "image": "prods/Meowstar Black by Ducky World.jpg"
+    },
+    {
+        "id": 11,
+        "category": "PVC PC Holder",
+        "name": "Menu",
+        "brand": "by Truffle Arts & Pomelo Paints Co.",
+        "price": 150,
+        "image": "prods/Menu.webp"
+    },
+    {
+        "id": 12,
+        "category": "PVC PC Holder",
+        "name": "Love Conquers All",
+        "brand": "by KMCIH",
+        "price": 200,
+        "image": "prods/Love Conquers All by KMCIH.webp"
+    },
+    {
+        "id": 13,
+        "category": "PC Sleeves",
+        "name": "Clear",
+        "brand": "by Popcorn Games",
+        "price": 100,
+        "image": "prods/Clear.jpg"
+    },
+    {
+        "id": 14,
+        "category": "PC Sleeves",
+        "name": "Holographic",
+        "brand": "by Mandu Deco",
+        "price": 120,
+        "image": "prods/Holo.webp"
+    },
+    {
+        "id": 15,
+        "category": "PC Toploader",
+        "name": "Clear (100 pcs)",
+        "brand": "by Prism Platinum",
+        "price": 170,
+        "image": "prods/Clear Toploader by Prism Platinum.webp"
+    },
+    {
+        "id": 16,
+        "category": "PC Decoden Toploader",
+        "name": "White Angel",
+        "brand": "by ShopZuzuGrows",
+        "price": 200,
+        "image": "prods/White Angel.webp"
+    },
+    {
+        "id": 17,
+        "category": "PC Decoden Toploader",
+        "name": "Kawaii",
+        "brand": "by ShopZuzuGrows",
+        "price": 250,
+        "image": "prods/Kawaii.png"
+    },
+    {
+        "id": 18,
+        "category": "PC Decoden Toploader",
+        "name": "Baby Blue",
+        "brand": "by ShopZuzuGrows",
+        "price": 200,
+        "image": "prods/Baby Blue.jpg"
+    },
+    {
+        "id": 19,
+        "category": "PC Decoden Toploader",
+        "name": "Peach & Gummy Bear",
+        "brand": "by ShopZuzuGrows",
+        "price": 250,
+        "image": "prods/Peach & Gummy Bear.webp"
+    },
+    {
+        "id": 20,
+        "category": "Stickers",
+        "name": "Pochacco Stickers",
+        "brand": "by Sanrio",
+        "price": 30,
+        "image": "prods/Pochacco by Sanrio.webp"
+    },
+    {
+        "id": 21,
+        "category": "Holographic Stickers",
+        "name": "Romantic Pearl Heart (7 pcs)",
+        "brand": "by Angora Lora",
+        "price": 150,
+        "image": "prods/Romantic Pearl Heart by Angora Lora.PNG"
+    },
+    {
+        "id": 22,
+        "category": "Glitter Stickers",
+        "name": "Lovey Dovey (5 pcs)",
+        "brand": "by Dash and Dot",
+        "price": 100,
+        "image": "prods/Lovey Dovey by Dash and Dot.jpg"
+    },
+    {
+        "id": 23,
+        "category": "Mini PC Collect Book",
+        "name": "Blue Starlight",
+        "brand": "by Comets Crush",
+        "price": 500,
+        "image": "prods/Blue Starlight by Comets Crush.jpg"
+    },
+    {
+        "id": 24,
+        "category": "Mini PC Collect Book",
+        "name": "Clover Heart",
+        "brand": "by Pink Rue",
+        "price": 500,
+        "image": "prods/Clover Heart by Pink Rue.jpg"
+    },
+    {
+        "id": 25,
+        "category": "Mini PC Collect Book",
+        "name": "Dolette",
+        "brand": "by Dear Diary Club",
+        "price": 450,
+        "image": "prods/Dolette by Dear Diary Club.jpg"
+    },
+    {
+        "id": 26,
+        "category": "Mini PC Collect Book",
+        "name": "Black Ppori",
+        "brand": "by Okiki",
+        "price": 450,
+        "image": "prods/Black Ppori by Okiki.webp"
+    },
+    {
+        "id": 27,
+        "category": "4 Pocket PC Binder",
+        "name": "Melody Sanrio Heart",
+        "brand": "by Aoger",
+        "price": 500,
+        "image": "prods/Melody Sanrio Heart by Aoger.PNG"
+    },
+    {
+        "id": 28,
+        "category": "4 Pocket PC Binder",
+        "name": "Composition Book",
+        "brand": "by Lucalab",
+        "price": 500,
+        "image": "prods/Composition Book by Lucalab.webp"
+    },
+    {
+        "id": 29,
+        "category": "4 Pocket PC Binder",
+        "name": "Lucky Star",
+        "brand": "by PowPat",
+        "price": 750,
+        "image": "prods/Lucky Star by PowPat.jpg"
+    },
+    {
+        "id": 30,
+        "category": "4 Pocket PC Binder",
+        "name": "Charac Charac Change Amulet Diamond",
+        "brand": "by Ducky World",
+        "price": 550,
+        "image": "prods/Charac Charac Change Amulet Diamond by Ducky World.jpg"
+    }    
+]

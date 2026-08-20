@@ -1,0 +1,552 @@
+/* =========================================
+   HAPPY SEOUL - NOTIFICATIONS
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #ffb703,
+        #ffca3a,
+        #ffd166
+    );
+
+    min-height: 100vh;
+    color: #222;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 50px 20px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.notification-container {
+    width: 100%;
+    max-width: 850px;
+
+    background: #ffffff;
+
+    border-radius: 24px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.15);
+
+    animation: fadeIn 0.5s ease;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.notification-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    gap: 20px;
+}
+
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.header-title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+
+.header-title p {
+    margin-top: 3px;
+
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* =========================================
+   BELL ICON
+========================================= */
+
+.bell-icon {
+    position: relative;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff4d6;
+
+    border-radius: 50%;
+}
+
+
+.bell-icon i {
+    font-size: 30px;
+    color: #f4a300;
+}
+
+
+#num-of-notif {
+    position: absolute;
+
+    top: -3px;
+    right: -3px;
+
+    min-width: 21px;
+    height: 21px;
+
+    padding: 2px 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ff4d4d;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    border: 2px solid white;
+}
+
+
+/* =========================================
+   MARK AS READ
+========================================= */
+
+.mark-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #e89a00;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.mark-btn:hover {
+    color: #222;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   NOTIFICATION LIST
+========================================= */
+
+.notification-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding-top: 25px;
+}
+
+
+/* =========================================
+   NOTIFICATION CARD
+========================================= */
+
+.notification-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+
+    transition: all 0.3s ease;
+}
+
+
+.notification-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+
+    border-color: #ffd166;
+}
+
+
+/* UNREAD */
+
+.notification-card.unread {
+    background: #fff8e6;
+
+    border-left: 4px solid #ffb703;
+}
+
+
+/* READ */
+
+.notification-card.read {
+    background: #fafafa;
+
+    opacity: 0.7;
+
+    border-left: 4px solid transparent;
+}
+
+
+/* =========================================
+   NOTIFICATION ICON
+========================================= */
+
+.notification-icon {
+    min-width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+}
+
+
+.notification-icon i {
+    font-size: 24px;
+}
+
+
+/* Different notification types */
+
+.notification-icon.shipping {
+    background: #e3f2fd;
+    color: #2196f3;
+}
+
+
+.notification-icon.product {
+    background: #fff0d5;
+    color: #f4a300;
+}
+
+
+.notification-icon.welcome {
+    background: #ffe4e4;
+    color: #ff5c5c;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+    flex: 1;
+}
+
+
+.description h3 {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #222;
+
+    margin-bottom: 5px;
+}
+
+
+.description p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #666;
+}
+
+
+.time {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+/* =========================================
+   UNREAD DOT
+========================================= */
+
+.unread-dot {
+    width: 9px;
+    height: 9px;
+
+    background: #ffb703;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.notification-footer {
+    text-align: center;
+
+    padding: 35px 20px 15px;
+
+    margin-top: 10px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.notification-footer img {
+    width: 170px;
+    height: 170px;
+
+    object-fit: contain;
+
+    margin-bottom: 10px;
+}
+
+
+.notification-footer h2 {
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    margin-bottom: 5px;
+}
+
+
+.notification-footer p {
+    font-size: 13px;
+
+    color: #999;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   HOME BUTTON
+========================================= */
+
+.home-btn {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    background: #ffb703;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+
+.home-btn:hover {
+    background: #f39c00;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(255, 183, 3, 0.3);
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 20px 10px;
+    }
+
+
+    .notification-container {
+        padding: 20px;
+
+        border-radius: 18px;
+    }
+
+
+    .notification-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .header-title h1 {
+        font-size: 23px;
+    }
+
+
+    .mark-btn {
+        align-self: flex-end;
+    }
+
+
+    .notification-card {
+        padding: 15px;
+
+        gap: 12px;
+    }
+
+
+    .notification-icon {
+        min-width: 42px;
+        height: 42px;
+    }
+
+
+    .notification-icon i {
+        font-size: 20px;
+    }
+
+
+    .description h3 {
+        font-size: 14px;
+    }
+
+
+    .description p {
+        font-size: 12px;
+    }
+
+
+    .notification-footer img {
+        width: 140px;
+        height: 140px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .header-title {
+        gap: 10px;
+    }
+
+
+    .bell-icon {
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .bell-icon i {
+        font-size: 24px;
+    }
+
+
+    .notification-card {
+        align-items: flex-start;
+    }
+
+
+    .unread-dot {
+        display: none;
+    }
+
+}

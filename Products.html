@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Seoul | Products</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="products.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <!-- LOGO -->
+
+    <a href="Home.html" class="logo">
+
+        <img src="logo.PNG" alt="Happy Seoul Logo">
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+
+        <!-- SEARCH -->
+
+        <form class="search-form" id="searchForm">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off">
+
+            <button type="submit">
+
+                <i class='bx bx-search'></i>
+
+            </button>
+
+        </form>
+
+
+        <!-- MENU -->
+
+        <ul class="menu">
+
+            <li>
+                <a href="Home.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="Products.html" class="active">
+                    Products
+                </a>
+            </li>
+
+        </ul>
+
+
+        <!-- ICONS -->
+
+        <div class="nav-icons">
+
+
+            <!-- CART -->
+
+            <a href="Cart.html" class="nav-icon cart">
+
+                <i class='bx bx-cart'></i>
+
+                <span id="cartCount">0</span>
+
+            </a>
+
+
+            <!-- USER -->
+
+            <a href="User.html" class="nav-icon">
+
+                <i class='bx bxs-user-account'></i>
+
+            </a>
+
+
+            <!-- NOTIFICATION -->
+
+            <a href="Notif.html" class="nav-icon">
+
+                <i class='bx bxs-bell'></i>
+
+            </a>
+
+
+            <!-- DROPDOWN -->
+
+            <div class="dropdown">
+
+                <button
+                    class="menu-button"
+                    id="menuButton">
+
+                    <i class='bx bx-menu'></i>
+
+                </button>
+
+
+                <div
+                    class="dropdown-content"
+                    id="dropdownMenu">
+
+                    <a href="Account.html">
+
+                        <i class='bx bx-user'></i>
+
+                        Account Info
+
+                    </a>
+
+
+                    <a href="About Us.html">
+
+                        <i class='bx bx-info-circle'></i>
+
+                        About Us
+
+                    </a>
+
+
+                    <a href="Faqs.html">
+
+                        <i class='bx bx-help-circle'></i>
+
+                        FAQs
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     PRODUCTS HERO
+===================================================== -->
+
+<section class="products-hero">
+
+    <div class="hero-decoration circle-one"></div>
+
+    <div class="hero-decoration circle-two"></div>
+
+
+    <div class="products-hero-content">
+
+        <span class="small-title">
+            ✨ HAPPY SHOPPING STARTS HERE
+        </span>
+
+        <h1>
+            Find Something
+            <span>You’ll Love.</span>
+        </h1>
+
+        <p>
+            Explore our collection of cute and unique
+            photocards, holders, sleeves, stickers,
+            binders, and more.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCT SECTION
+===================================================== -->
+
+<main class="products-container">
+
+
+    <!-- SECTION HEADER -->
+
+    <div class="products-heading">
+
+        <div>
+
+            <span class="section-label">
+                OUR COLLECTION
+            </span>
+
+            <h2>
+                All Products
+            </h2>
+
+            <p id="productCount">
+                Showing all products
+            </p>
+
+        </div>
+
+
+        <!-- SORT -->
+
+        <div class="sort-container">
+
+            <label for="sortProducts">
+                Sort by:
+            </label>
+
+            <select id="sortProducts">
+
+                <option value="default">
+                    Featured
+                </option>
+
+                <option value="low">
+                    Price: Low to High
+                </option>
+
+                <option value="high">
+                    Price: High to Low
+                </option>
+
+                <option value="az">
+                    Name: A-Z
+                </option>
+
+                <option value="za">
+                    Name: Z-A
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         CATEGORY FILTERS
+    ================================================= -->
+
+    <div class="category-wrapper">
+
+        <button
+            class="category-btn active"
+            data-category="All">
+
+            All
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="Acrylic PC Holder with Keyring">
+
+            Acrylic Keyrings
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="Acrylic PC Holder with Stand">
+
+            Acrylic Stands
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="PVC PC Holder">
+
+            PVC Holders
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="PC Sleeves">
+
+            Sleeves
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="PC Toploader">
+
+            Toploaders
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="PC Decoden Toploader">
+
+            Decoden
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="Stickers">
+
+            Stickers
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="Mini PC Collect Book">
+
+            Collect Books
+
+        </button>
+
+        <button
+            class="category-btn"
+            data-category="4 Pocket PC Binder">
+
+            Binders
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRODUCTS
+    ================================================= -->
+
+    <section
+        class="product-grid"
+        id="productGrid">
+
+        <!-- Products will be loaded here -->
+
+        <div class="loading">
+
+            <div class="loader"></div>
+
+            <p>
+                Loading Happy Seoul products...
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- NO RESULTS -->
+
+    <div
+        class="no-results"
+        id="noResults">
+
+        <i class='bx bx-search-alt-2'></i>
+
+        <h3>
+            No products found
+        </h3>
+
+        <p>
+            Try searching for another product or category.
+        </p>
+
+        <button id="resetSearch">
+            Show All Products
+        </button>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     SHOPPING CTA
+===================================================== -->
+
+<section class="shop-cta">
+
+    <div>
+
+        <span>
+            💛 HAPPY SHOPPING
+        </span>
+
+        <h2>
+            Find your next favorite!
+        </h2>
+
+        <p>
+            Take a look around and discover something
+            that makes your collection a little happier.
+        </p>
+
+    </div>
+
+
+    <a
+        href="Home.html"
+        class="cta-button">
+
+        Back to Home
+
+        <i class='bx bx-right-arrow-alt'></i>
+
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <img
+                src="logo.PNG"
+                alt="Happy Seoul">
+
+            <p>
+                Bringing happiness to your everyday
+                shopping and collection experience. 💛
+            </p>
+
+
+            <div class="social-icons">
+
+                <a
+                    href="https://www.instagram.com/enhypen/"
+                    target="_blank">
+
+                    <i class='bx bxl-instagram'></i>
+
+                </a>
+
+                <a
+                    href="https://www.facebook.com/JYPETWICE/"
+                    target="_blank">
+
+                    <i class='bx bxl-facebook'></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="Home.html">
+                Home
+            </a>
+
+            <a href="Products.html">
+                Products
+            </a>
+
+            <a href="About Us.html">
+                About Us
+            </a>
+
+            <a href="Faqs.html">
+                FAQs
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER CARE -->
+
+        <div class="footer-column">
+
+            <h3>
+                Customer Care
+            </h3>
+
+            <a href="Account.html">
+                My Account
+            </a>
+
+            <a href="Cart.html">
+                Shopping Cart
+            </a>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+            <a href="#">
+                Terms of Use
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column contact">
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+
+                <i class='bx bxl-gmail'></i>
+
+                happyseoul@gmail.com
+
+            </p>
+
+            <p>
+
+                <i class='bx bxs-phone'></i>
+
+                0917 209 1115
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2023 Happy Seoul. All Rights Reserved.
+        </p>
+
+        <p>
+            Made with 💛 for Happy Seoul
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="jcart.js"></script>
+
+
+<script>
+
+let products = [];
+
+let filteredProducts = [];
+
+let selectedCategory = "All";
+
+
+
+/* =====================================================
+   LOAD PRODUCTS
+===================================================== */
+
+async function loadProducts() {
+
+    try {
+
+        const response = await fetch("product.json");
+
+        if (!response.ok) {
+
+            throw new Error("Unable to load product.json");
+
+        }
+
+        products = await response.json();
+
+        filteredProducts = [...products];
+
+        displayProducts();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("productGrid").innerHTML = `
+
+            <div class="error-message">
+
+                <i class='bx bx-error-circle'></i>
+
+                <h3>
+                    Unable to load products
+                </h3>
+
+                <p>
+                    Please make sure product.json is
+                    in the same folder as Products.html.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   DISPLAY PRODUCTS
+===================================================== */
+
+function displayProducts() {
+
+    const productGrid =
+        document.getElementById("productGrid");
+
+    const noResults =
+        document.getElementById("noResults");
+
+    const productCount =
+        document.getElementById("productCount");
+
+
+    productGrid.innerHTML = "";
+
+
+    if (filteredProducts.length === 0) {
+
+        productGrid.style.display = "none";
+
+        noResults.style.display = "flex";
+
+        productCount.textContent =
+            "No products found";
+
+        return;
+
+    }
+
+
+    productGrid.style.display = "grid";
+
+    noResults.style.display = "none";
+
+
+    productCount.textContent =
+        `Showing ${filteredProducts.length} product${filteredProducts.length !== 1 ? "s" : ""}`;
+
+
+    filteredProducts.forEach(product => {
+
+        const card = document.createElement("article");
+
+        card.className = "product-card";
+
+
+        card.innerHTML = `
+
+            <div class="product-image-container">
+
+                <span class="category-badge">
+
+                    ${product.category}
+
+                </span>
+
+
+                <button
+                    class="favorite-btn"
+                    aria-label="Add ${product.name} to favorites">
+
+                    <i class='bx bx-heart'></i>
+
+                </button>
+
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    class="product-image"
+                    loading="lazy"
+                    onerror="this.src='logo.PNG'">
+
+            </div>
+
+
+            <div class="product-info">
+
+                <p class="product-category">
+
+                    ${product.category}
+
+                </p>
+
+
+                <h3 class="product-name">
+
+                    ${product.name}
+
+                </h3>
+
+
+                <p class="product-brand">
+
+                    ${product.brand}
+
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <div class="product-price">
+
+                        ₱${Number(product.price).toLocaleString()}
+
+                    </div>
+
+
+                    <button
+                        class="add-cart-btn"
+                        data-id="${product.id}">
+
+                        <i class='bx bx-cart-add'></i>
+
+                        <span>
+                            Add
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        productGrid.appendChild(card);
+
+    });
+
+
+    setupCardEvents();
+
+}
+
+
+
+/* =====================================================
+   CARD EVENTS
+===================================================== */
+
+function setupCardEvents() {
+
+
+    /* FAVORITES */
+
+    document
+        .querySelectorAll(".favorite-btn")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                this.classList.toggle("liked");
+
+                const icon =
+                    this.querySelector("i");
+
+                if (this.classList.contains("liked")) {
+
+                    icon.className = "bx bxs-heart";
+
+                }
+
+                else {
+
+                    icon.className = "bx bx-heart";
+
+                }
+
+            });
+
+        });
+
+
+
+    /* ADD TO CART */
+
+    document
+        .querySelectorAll(".add-cart-btn")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const id =
+                    Number(this.dataset.id);
+
+                const product =
+                    products.find(item => item.id === id);
+
+
+                if (!product) return;
+
+
+                /*
+                    If your existing jcart.js has
+                    an addToCart function, use it.
+                */
+
+                if (typeof addToCart === "function") {
+
+                    addToCart(product);
+
+                }
+
+
+                /* Visual feedback */
+
+                const originalHTML =
+                    this.innerHTML;
+
+
+                this.innerHTML = `
+
+                    <i class='bx bx-check'></i>
+
+                    <span>
+                        Added
+                    </span>
+
+                `;
+
+
+                this.classList.add("added");
+
+
+                setTimeout(() => {
+
+                    this.innerHTML =
+                        originalHTML;
+
+                    this.classList.remove("added");
+
+                }, 1200);
+
+            });
+
+        });
+
+}
+
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+document
+    .querySelectorAll(".category-btn")
+    .forEach(button => {
+
+        button.addEventListener("click", function () {
+
+
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+
+            this.classList.add("active");
+
+
+            selectedCategory =
+                this.dataset.category;
+
+
+            applyFilters();
+
+        });
+
+    });
+
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+document
+    .getElementById("searchForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        applyFilters();
+
+    });
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener("input", function() {
+
+        applyFilters();
+
+    });
+
+
+
+function applyFilters() {
+
+    const searchTerm =
+        document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    filteredProducts =
+        products.filter(product => {
+
+
+            const matchesCategory =
+                selectedCategory === "All" ||
+                product.category === selectedCategory;
+
+
+            const matchesSearch =
+                product.name
+                    .toLowerCase()
+                    .includes(searchTerm) ||
+
+                product.brand
+                    .toLowerCase()
+                    .includes(searchTerm) ||
+
+                product.category
+                    .toLowerCase()
+                    .includes(searchTerm);
+
+
+            return matchesCategory && matchesSearch;
+
+        });
+
+
+    sortProducts();
+
+}
+
+
+
+/* =====================================================
+   SORT
+===================================================== */
+
+document
+    .getElementById("sortProducts")
+    .addEventListener("change", function() {
+
+        sortProducts();
+
+    });
+
+
+
+function sortProducts() {
+
+    const sortValue =
+        document.getElementById("sortProducts").value;
+
+
+    if (sortValue === "low") {
+
+        filteredProducts.sort(
+            (a, b) => a.price - b.price
+        );
+
+    }
+
+
+    else if (sortValue === "high") {
+
+        filteredProducts.sort(
+            (a, b) => b.price - a.price
+        );
+
+    }
+
+
+    else if (sortValue === "az") {
+
+        filteredProducts.sort(
+            (a, b) =>
+                a.name.localeCompare(b.name)
+        );
+
+    }
+
+
+    else if (sortValue === "za") {
+
+        filteredProducts.sort(
+            (a, b) =>
+                b.name.localeCompare(a.name)
+        );
+
+    }
+
+
+    displayProducts();
+
+}
+
+
+
+/* =====================================================
+   RESET SEARCH
+===================================================== */
+
+document
+    .getElementById("resetSearch")
+    .addEventListener("click", function() {
+
+
+        document
+            .getElementById("searchInput")
+            .value = "";
+
+
+        selectedCategory = "All";
+
+
+        document
+            .querySelectorAll(".category-btn")
+            .forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+
+        document
+            .querySelector('[data-category="All"]')
+            .classList.add("active");
+
+
+        document
+            .getElementById("sortProducts")
+            .value = "default";
+
+
+        filteredProducts = [...products];
+
+
+        displayProducts();
+
+    });
+
+
+
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+document
+    .getElementById("menuButton")
+    .addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        document
+            .getElementById("dropdownMenu")
+            .classList.toggle("show");
+
+    });
+
+
+document.addEventListener("click", function() {
+
+    document
+        .getElementById("dropdownMenu")
+        .classList.remove("show");
+
+});
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadProducts();
+
+</script>
+
+
+</body>
+</html>

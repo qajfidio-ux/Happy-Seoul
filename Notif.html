@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | Happy Seoul</title>
+
+    <link rel="stylesheet" href="notif.css">
+
+    <!-- Boxicons -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    >
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="notification-container">
+
+            <!-- HEADER -->
+            <header class="notification-header">
+
+                <div class="header-title">
+                    <div class="bell-icon">
+                        <i class='bx bxs-bell'></i>
+                        <span id="num-of-notif">3</span>
+                    </div>
+
+                    <div>
+                        <h1>Notifications</h1>
+                        <p>Stay updated with Happy Seoul</p>
+                    </div>
+                </div>
+
+                <button id="mark-as-read" class="mark-btn">
+                    Mark all as read
+                </button>
+
+            </header>
+
+
+            <!-- NOTIFICATIONS -->
+            <main class="notification-list">
+
+                <!-- Notification 1 -->
+                <article class="notification-card unread">
+
+                    <div class="notification-icon shipping">
+                        <i class='bx bxs-map'></i>
+                    </div>
+
+                    <div class="description">
+                        <h3>Shipping information added</h3>
+
+                        <p>
+                            You've added your shipping address and payment
+                            method. Awesome!
+                        </p>
+
+                        <span class="time">4 hours ago</span>
+                    </div>
+
+                    <span class="unread-dot"></span>
+
+                </article>
+
+
+                <!-- Notification 2 -->
+                <article class="notification-card unread">
+
+                    <div class="notification-icon product">
+                        <i class='bx bxs-shopping-bag'></i>
+                    </div>
+
+                    <div class="description">
+                        <h3>New item available!</h3>
+
+                        <p>
+                            A new K-pop item has been added to Happy Seoul.
+                            Check it out now!
+                        </p>
+
+                        <span class="time">5 hours ago</span>
+                    </div>
+
+                    <span class="unread-dot"></span>
+
+                </article>
+
+
+                <!-- Notification 3 -->
+                <article class="notification-card unread">
+
+                    <div class="notification-icon welcome">
+                        <i class='bx bxs-heart'></i>
+                    </div>
+
+                    <div class="description">
+                        <h3>Welcome to Happy Seoul!</h3>
+
+                        <p>
+                            Thanks for joining us! Enjoy browsing and shopping
+                            for your favorite K-pop accessories.
+                        </p>
+
+                        <span class="time">7 hours ago</span>
+                    </div>
+
+                    <span class="unread-dot"></span>
+
+                </article>
+
+
+                <!-- Empty / Decorative Section -->
+                <div class="notification-footer">
+
+                    <img
+                        src="winku.png"
+                        alt="Happy Seoul mascot"
+                    >
+
+                    <h2>You're all caught up!</h2>
+
+                    <p>
+                        We'll let you know when something new happens.
+                    </p>
+
+                    <a href="Home.html" class="home-btn">
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <script src="notif.js"></script>
+
+</body>
+</html>

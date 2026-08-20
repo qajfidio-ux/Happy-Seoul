@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Information | Happy Seoul</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="account.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="header">
+
+        <a href="Home.html" class="logo">
+            <img src="logo.PNG" alt="Happy Seoul Logo">
+        </a>
+
+        <nav class="navbar">
+
+            <!-- Search -->
+            <form class="search-form">
+                <input
+                    type="search"
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                >
+                <button type="submit">
+                    Search
+                </button>
+            </form>
+
+            <!-- Main Menu -->
+            <ul class="menu">
+                <li>
+                    <a href="Home.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="Products.html">Products</a>
+                </li>
+            </ul>
+
+            <!-- Navigation Icons -->
+            <div class="nav-icon">
+
+                <!-- Cart -->
+                <a href="Cart.html" class="icon-link cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="cart-count">0</span>
+                </a>
+
+                <!-- Account -->
+                <a href="User.html" class="icon-link">
+                    <i class='bx bxs-user-account'></i>
+                </a>
+
+                <!-- Notifications -->
+                <a href="Notif.html" class="icon-link">
+                    <i class='bx bxs-bell'></i>
+                </a>
+
+                <!-- Menu -->
+                <div class="dropdown">
+
+                    <button class="dropbtn" type="button">
+                        <i class='bx bx-menu'></i>
+                    </button>
+
+                    <div class="dropdown-content">
+                        <a href="Account.html">
+                            <i class='bx bx-user'></i>
+                            Account Info
+                        </a>
+
+                        <a href="About Us.html">
+                            <i class='bx bx-info-circle'></i>
+                            About Us
+                        </a>
+
+                        <a href="Faqs.html">
+                            <i class='bx bx-help-circle'></i>
+                            FAQs
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="account-page">
+
+        <!-- Page Header -->
+        <section class="page-heading">
+
+            <span class="heading-icon">
+                <i class='bx bxs-user-circle'></i>
+            </span>
+
+            <div>
+                <h1>Account Information</h1>
+                <p>
+                    Manage your personal information, shipping details,
+                    and payment preferences.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Account Card -->
+        <section class="account-card">
+
+            <form action="Home.html">
+
+                <div class="account-grid">
+
+                    <!-- ================= PERSONAL INFORMATION ================= -->
+                    <div class="form-section">
+
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <i class='bx bx-user'></i>
+                            </div>
+
+                            <div>
+                                <h2>Personal Information</h2>
+                                <p>Your basic account details</p>
+                            </div>
+                        </div>
+
+
+                        <!-- Full Name -->
+                        <div class="form-group">
+
+                            <label for="fname">
+                                <i class="fa-solid fa-user"></i>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fname"
+                                name="firstname"
+                                placeholder="Enter your full name"
+                                value="Keila Marie Mauricio"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="form-group">
+
+                            <label for="email">
+                                <i class="fa-solid fa-envelope"></i>
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Phone -->
+                        <div class="form-group">
+
+                            <label for="phone">
+                                <i class="fa-solid fa-phone"></i>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="09XX XXX XXXX"
+                            >
+
+                        </div>
+
+
+                        <!-- Address -->
+                        <div class="form-group">
+
+                            <label for="address">
+                                <i class="fa-solid fa-location-dot"></i>
+                                Complete Address
+                            </label>
+
+                            <input
+                                type="text"
+                                id="address"
+                                name="address"
+                                placeholder="House No., Street, Barangay"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- City + ZIP -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="city">
+                                    <i class="fa-solid fa-city"></i>
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    placeholder="Quezon City"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="zip">
+                                    <i class="fa-solid fa-map-pin"></i>
+                                    ZIP Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="zip"
+                                    name="zip"
+                                    placeholder="1109"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= PAYMENT INFORMATION ================= -->
+                    <div class="form-section payment-section">
+
+                        <div class="section-title">
+
+                            <div class="section-icon">
+                                <i class='bx bx-credit-card'></i>
+                            </div>
+
+                            <div>
+                                <h2>Payment Information</h2>
+                                <p>Enter your preferred payment details</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- Accepted Cards -->
+                        <div class="accepted-cards">
+
+                            <span>Accepted Cards</span>
+
+                            <div class="card-icons">
+
+                                <i class="fa-brands fa-cc-visa"></i>
+
+                                <i class="fa-brands fa-cc-mastercard"></i>
+
+                                <i class="fa-brands fa-cc-amex"></i>
+
+                                <i class="fa-brands fa-cc-discover"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Name on Card -->
+                        <div class="form-group">
+
+                            <label for="cname">
+                                <i class="fa-solid fa-user"></i>
+                                Name on Card
+                            </label>
+
+                            <input
+                                type="text"
+                                id="cname"
+                                name="cardname"
+                                placeholder="Name printed on card"
+                            >
+
+                        </div>
+
+
+                        <!-- Card Number -->
+                        <div class="form-group">
+
+                            <label for="ccnum">
+                                <i class="fa-solid fa-credit-card"></i>
+                                Card Number
+                            </label>
+
+                            <div class="input-icon">
+
+                                <input
+                                    type="text"
+                                    id="ccnum"
+                                    name="cardnumber"
+                                    placeholder="1111 2222 3333 4444"
+                                >
+
+                                <i class="fa-solid fa-lock"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Expiration + CVV -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="expmonth">
+                                    Exp. Month
+                                </label>
+
+                                <select id="expmonth" name="expmonth">
+
+                                    <option value="">Month</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="expyear">
+                                    Exp. Year
+                                </label>
+
+                                <select id="expyear" name="expyear">
+
+                                    <option value="">Year</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
+                                    <option>2029</option>
+                                    <option>2030</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="cvv">
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="cvv"
+                                    name="cvv"
+                                    placeholder="123"
+                                    maxlength="4"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Security Notice -->
+                        <div class="security-notice">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <div>
+                                <strong>Your information is secure</strong>
+                                <p>
+                                    Your payment information is protected
+                                    and handled securely.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= SHIPPING ================= -->
+                <div class="shipping-option">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            checked
+                            name="sameadr"
+                        >
+
+                        <span>
+                            Shipping address is the same as billing address
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- ================= ACTION BUTTONS ================= -->
+                <div class="form-actions">
+
+                    <a href="Home.html" class="back-btn">
+                        <i class='bx bx-arrow-back'></i>
+                        Back to Home
+                    </a>
+
+                    <button type="submit" class="save-btn">
+                        <i class='bx bx-check'></i>
+                        Save Information
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>© Happy Seoul 2023</h3>
+                <p>Be happy with Happy Seoul ♡</p>
+            </div>
+
+            <div class="footer-links">
+
+                <a href="About Us.html">About Us</a>
+
+                <a href="Faqs.html">FAQs</a>
+
+                <a href="#">Privacy Policy</a>
+
+                <a href="#">Terms of Use</a>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <p>
+                    <i class='bx bxl-gmail'></i>
+                    happyseoul@gmail.com
+                </p>
+
+                <p>
+                    <i class='bx bxs-phone'></i>
+                    0917 209 1115
+                </p>
+
+            </div>
+
+            <div class="social-icons">
+
+                <a href="#">
+                    <i class='bx bxl-instagram'></i>
+                </a>
+
+                <a href="#">
+                    <i class='bx bxl-facebook-circle'></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

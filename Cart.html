@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart | Happy Seoul</title>
+
+    <link rel="stylesheet" href="cart.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="navbar">
+
+    <a href="Home.html" class="logo">
+        <img src="logo.PNG" alt="Happy Seoul">
+    </a>
+
+    <nav class="nav-right">
+
+        <form class="search-form" id="searchForm">
+            <input type="search" id="searchInput" placeholder="Search products...">
+            <button type="submit">
+                <i class='bx bx-search'></i>
+            </button>
+        </form>
+
+        <ul class="menu">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+        </ul>
+
+        <div class="nav-icons">
+
+            <a href="Cart.html" class="cart-icon">
+                <i class='bx bx-cart'></i>
+                <span id="cartCount">0</span>
+            </a>
+
+            <a href="User.html">
+                <i class='bx bxs-user-account'></i>
+            </a>
+
+            <a href="Notif.html">
+                <i class='bx bxs-bell'></i>
+            </a>
+
+            <div class="dropdown">
+
+                <button class="menu-button">
+                    <i class='bx bx-menu'></i>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="Account.html">Account Info</a>
+                    <a href="About Us.html">About Us</a>
+                    <a href="Faqs.html">FAQs</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= CART ================= -->
+
+<main class="cart-page">
+
+    <div class="cart-header">
+        <div>
+            <p class="eyebrow">YOUR SHOPPING BAG</p>
+            <h1>Shopping Cart</h1>
+            <p class="cart-subtitle">
+                Review your favorite Happy Seoul items before checkout.
+            </p>
+        </div>
+
+        <a href="Products.html" class="continue-shopping">
+            <i class='bx bx-arrow-back'></i>
+            Continue Shopping
+        </a>
+    </div>
+
+
+    <div class="cart-layout">
+
+        <!-- CART ITEMS -->
+
+        <section class="cart-container">
+
+            <div class="cart-title">
+                <h2>Your Items</h2>
+                <span id="itemCount">0 items</span>
+            </div>
+
+            <div id="listCart" class="listCart">
+
+                <!-- Products will be inserted here by JavaScript -->
+
+            </div>
+
+            <div id="emptyCart" class="empty-cart">
+
+                <div class="empty-icon">
+                    <i class='bx bx-cart'></i>
+                </div>
+
+                <h2>Your cart is empty</h2>
+
+                <p>
+                    Looks like you haven't added anything yet.
+                </p>
+
+                <a href="Products.html" class="shop-btn">
+                    Browse Products
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDER SUMMARY -->
+
+        <aside class="summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+                <span>Items</span>
+                <span id="summaryItems">0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₱0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span id="shipping">₱50</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong id="grandTotal">₱0</strong>
+            </div>
+
+            <button id="checkoutBtn" class="checkout-btn">
+                Proceed to Checkout
+                <i class='bx bx-right-arrow-alt'></i>
+            </button>
+
+            <p class="secure-payment">
+                <i class='bx bx-lock-alt'></i>
+                Secure checkout
+            </p>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="jcart.js"></script>
+
+</body>
+</html>

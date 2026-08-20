@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FAQs | Happy Seoul</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Boxicons -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="faqs.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+    <header class="navbar">
+
+        <a href="Home.html" class="logo">
+            <img src="logo.PNG" alt="Happy Seoul Logo">
+        </a>
+
+        <nav class="nav-content">
+
+            <!-- Search -->
+            <form class="search-form">
+                <input
+                    type="search"
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                >
+                <button type="submit">
+                    <i class='bx bx-search'></i>
+                </button>
+            </form>
+
+            <!-- Main Menu -->
+            <ul class="menu">
+                <li>
+                    <a href="Home.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="Products.html">Products</a>
+                </li>
+            </ul>
+
+            <!-- Icons -->
+            <div class="nav-icons">
+
+                <!-- Cart -->
+                <a href="Cart.html" class="icon-link cart-icon" aria-label="Shopping Cart">
+                    <i class='bx bx-cart'></i>
+                    <span class="cart-count">0</span>
+                </a>
+
+                <!-- Account -->
+                <a href="User.html" class="icon-link" aria-label="Account">
+                    <i class='bx bxs-user-account'></i>
+                </a>
+
+                <!-- Notifications -->
+                <a href="Notif.html" class="icon-link" aria-label="Notifications">
+                    <i class='bx bxs-bell'></i>
+                </a>
+
+                <!-- Menu -->
+                <div class="dropdown">
+
+                    <button class="dropbtn" aria-label="Open menu">
+                        <i class='bx bx-menu'></i>
+                    </button>
+
+                    <div class="dropdown-content">
+
+                        <a href="Account.html">
+                            <i class='bx bx-user'></i>
+                            Account Info
+                        </a>
+
+                        <a href="About Us.html">
+                            <i class='bx bx-info-circle'></i>
+                            About Us
+                        </a>
+
+                        <a href="Faqs.html">
+                            <i class='bx bx-help-circle'></i>
+                            FAQs
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= FAQ HERO ================= -->
+
+    <section class="faq-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                <i class='bx bx-help-circle'></i>
+                Help Center
+            </span>
+
+            <h1>Frequently Asked Questions</h1>
+
+            <p>
+                Find answers to common questions about Happy Seoul,
+                our products, payments, orders, and deliveries.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FAQ SECTION ================= -->
+
+    <main class="faq-section">
+
+        <!-- Left Side -->
+        <div class="faq-intro">
+
+            <div class="faq-icon">
+                <i class='bx bx-message-rounded-question'></i>
+            </div>
+
+            <h2>
+                Have a question?
+            </h2>
+
+            <p>
+                We've got you covered! Browse our frequently asked
+                questions to find the information you need.
+            </p>
+
+            <img
+                src="images/faq-image.png"
+                alt="Happy Seoul customer support"
+                class="faq-img"
+            >
+
+        </div>
+
+
+        <!-- FAQ Accordion -->
+        <div class="faq-list">
+
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq1"
+                    class="faq-trigger"
+                >
+
+                <label for="faq1" class="faq-title">
+                    <span>
+                        <i class='bx bx-shopping-bag'></i>
+                        How do I place an order?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Browse our products and select the item you want
+                        to purchase. Click <strong>Add to Cart</strong>,
+                        review your selected items, and proceed to checkout.
+                        Enter your delivery information and choose your
+                        preferred payment method to complete your order.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq2"
+                    class="faq-trigger"
+                >
+
+                <label for="faq2" class="faq-title">
+                    <span>
+                        <i class='bx bx-credit-card'></i>
+                        What payment methods are accepted?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Happy Seoul accepts several payment options,
+                        including credit/debit cards, GCash, PayPal,
+                        and Cash on Delivery (COD), depending on
+                        availability.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq3"
+                    class="faq-trigger"
+                >
+
+                <label for="faq3" class="faq-title">
+                    <span>
+                        <i class='bx bx-lock-alt'></i>
+                        Is my payment information secure?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        We take customer privacy and payment security
+                        seriously. Your payment information should only
+                        be handled through the designated payment process
+                        and should never be shared publicly.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq4"
+                    class="faq-trigger"
+                >
+
+                <label for="faq4" class="faq-title">
+                    <span>
+                        <i class='bx bx-package'></i>
+                        Can I track my order?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Yes. Once your order has been shipped, tracking
+                        information can be provided so you can monitor
+                        your package and check its delivery status.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq5"
+                    class="faq-trigger"
+                >
+
+                <label for="faq5" class="faq-title">
+                    <span>
+                        <i class='bx bx-refresh'></i>
+                        What is the return policy?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Returns may be accepted when an incorrect,
+                        incomplete, or damaged item is received.
+                        Customers should contact Happy Seoul as soon
+                        as possible and provide details and photos
+                        of the issue for verification.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq6"
+                    class="faq-trigger"
+                >
+
+                <label for="faq6" class="faq-title">
+                    <span>
+                        <i class='bx bx-headphone'></i>
+                        How do I contact customer support?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        You can contact Happy Seoul through the customer
+                        support information provided on our website.
+                        Please include your order number and a description
+                        of your concern so we can assist you faster.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq7"
+                    class="faq-trigger"
+                >
+
+                <label for="faq7" class="faq-title">
+                    <span>
+                        <i class='bx bx-world'></i>
+                        Do you ship internationally?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Currently, Happy Seoul focuses on local deliveries.
+                        International shipping may become available in
+                        the future as our store expands.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FAQ 8 -->
+            <div class="faq-item">
+
+                <input
+                    type="checkbox"
+                    id="faq8"
+                    class="faq-trigger"
+                >
+
+                <label for="faq8" class="faq-title">
+                    <span>
+                        <i class='bx bx-x-circle'></i>
+                        Can I change or cancel my order?
+                    </span>
+
+                    <i class='bx bx-chevron-down'></i>
+                </label>
+
+                <div class="faq-detail">
+
+                    <p>
+                        Orders should be reviewed carefully before
+                        completing checkout. If you need to cancel an
+                        order, contact customer support as soon as possible.
+                        Once an order has been processed or shipped,
+                        cancellation may no longer be available.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                <i class='bx bx-conversation'></i>
+            </div>
+
+            <div>
+                <h2>Still have questions?</h2>
+
+                <p>
+                    Our team is happy to help you with your concerns.
+                </p>
+            </div>
+
+            <a href="Home.html" class="contact-btn">
+                Back to Home
+                <i class='bx bx-right-arrow-alt'></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>© 2025 Happy Seoul. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
