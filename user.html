@@ -34,7 +34,7 @@
             </div>
 
             <!-- SIGN IN -->
-            <form class="form sign-in-form" action="Home.html">
+            <form id="signInForm" class="form sign-in-form" action="api/login.php" method="POST">
 
                 <div class="heading">
                     <span class="welcome">WELCOME BACK!</span>
@@ -45,8 +45,10 @@
                     </p>
                 </div>
 
+                <div id="signInAlert" class="auth-alert" style="display:none;"></div>
+
                 <div class="input-group">
-                    <label for="login-name">Username</label>
+                    <label for="login-name">Username or Email</label>
 
                     <div class="input-box">
                         <i class='bx bx-user'></i>
@@ -54,8 +56,9 @@
                         <input
                             type="text"
                             id="login-name"
-                            placeholder="Enter your username"
-                            minlength="4"
+                            name="username"
+                            placeholder="Enter your username or email"
+                            minlength="3"
                             autocomplete="username"
                             required
                         >
@@ -71,6 +74,7 @@
                         <input
                             type="password"
                             id="login-password"
+                            name="password"
                             placeholder="Enter your password"
                             minlength="4"
                             autocomplete="current-password"
@@ -89,7 +93,7 @@
 
                 <div class="form-options">
                     <label class="remember">
-                        <input type="checkbox">
+                        <input type="checkbox" name="remember" value="1">
                         <span>Remember me</span>
                     </label>
 
@@ -98,8 +102,8 @@
                     </a>
                 </div>
 
-                <button type="submit" class="sign-btn">
-                    Sign In
+                <button type="submit" id="signInBtn" class="sign-btn">
+                    <span>Sign In</span>
                     <i class='bx bx-right-arrow-alt'></i>
                 </button>
 
@@ -116,7 +120,7 @@
 
 
             <!-- SIGN UP -->
-            <form class="form sign-up-form" action="Home.html">
+            <form id="signUpForm" class="form sign-up-form" action="api/signup.php" method="POST">
 
                 <div class="heading">
                     <span class="welcome">JOIN HAPPY SEOUL!</span>
@@ -129,6 +133,8 @@
                     </p>
                 </div>
 
+                <div id="signUpAlert" class="auth-alert" style="display:none;"></div>
+
                 <div class="input-group">
                     <label for="signup-name">Username</label>
 
@@ -138,8 +144,9 @@
                         <input
                             type="text"
                             id="signup-name"
+                            name="username"
                             placeholder="Choose a username"
-                            minlength="4"
+                            minlength="3"
                             autocomplete="username"
                             required
                         >
@@ -155,6 +162,7 @@
                         <input
                             type="email"
                             id="signup-email"
+                            name="email"
                             placeholder="Enter your email"
                             autocomplete="email"
                             required
@@ -171,7 +179,8 @@
                         <input
                             type="password"
                             id="signup-password"
-                            placeholder="Create a password"
+                            name="password"
+                            placeholder="Create a password (min. 4 characters)"
                             minlength="4"
                             autocomplete="new-password"
                             required
@@ -188,7 +197,7 @@
                 </div>
 
                 <label class="terms">
-                    <input type="checkbox" required>
+                    <input type="checkbox" name="terms" required>
 
                     <span>
                         I agree to the
@@ -198,8 +207,8 @@
                     </span>
                 </label>
 
-                <button type="submit" class="sign-btn">
-                    Create Account
+                <button type="submit" id="signUpBtn" class="sign-btn">
+                    <span>Create Account</span>
                     <i class='bx bx-right-arrow-alt'></i>
                 </button>
 
@@ -266,44 +275,157 @@
     const toggles = document.querySelectorAll(".toggle");
 
     toggles.forEach(toggle => {
-
         toggle.addEventListener("click", function(event) {
-
             event.preventDefault();
-
             main.classList.toggle("sign-up-mode");
-
+            clearAlerts();
         });
-
     });
 
+    // Check if URL specifies signup mode (e.g. user.html#signup or ?mode=signup)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (window.location.hash === "#signup" || urlParams.get("mode") === "signup") {
+        main.classList.add("sign-up-mode");
+    }
 
     /* ===============================
        SHOW / HIDE PASSWORD
     =============================== */
 
     function togglePassword(inputId, button) {
-
         const input = document.getElementById(inputId);
         const icon = button.querySelector("i");
 
         if (input.type === "password") {
-
             input.type = "text";
-
             icon.classList.remove("bx-show");
             icon.classList.add("bx-hide");
-
         } else {
-
             input.type = "password";
-
             icon.classList.remove("bx-hide");
             icon.classList.add("bx-show");
+        }
+    }
 
+    /* ===============================
+       ALERTS HELPER
+    =============================== */
+    function showAlert(alertEl, message, isSuccess = false) {
+        alertEl.style.display = "flex";
+        alertEl.className = "auth-alert " + (isSuccess ? "success" : "error");
+        alertEl.innerHTML = `<i class='bx ${isSuccess ? "bx-check-circle" : "bx-error-circle"}'></i> <span>${message}</span>`;
+    }
+
+    function clearAlerts() {
+        document.getElementById("signInAlert").style.display = "none";
+        document.getElementById("signUpAlert").style.display = "none";
+    }
+
+    /* ===============================
+       AJAX SIGN IN HANDLER
+    =============================== */
+    const signInForm = document.getElementById("signInForm");
+    const signInBtn = document.getElementById("signInBtn");
+    const signInAlert = document.getElementById("signInAlert");
+
+    signInForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        clearAlerts();
+
+        const btnSpan = signInBtn.querySelector("span");
+        const origText = btnSpan.textContent;
+        signInBtn.disabled = true;
+        btnSpan.textContent = "Signing In...";
+
+        try {
+            const formData = new FormData(signInForm);
+            const response = await fetch("api/login.php", {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showAlert(signInAlert, result.message || "Signed in successfully!", true);
+                setTimeout(() => {
+                    const redirectUrl = urlParams.get("redirect") || result.redirect || "Home.html";
+                    window.location.href = redirectUrl;
+                }, 700);
+            } else {
+                showAlert(signInAlert, result.message || "Login failed. Please check your credentials.");
+                signInBtn.disabled = false;
+                btnSpan.textContent = origText;
+            }
+        } catch (err) {
+            showAlert(signInAlert, "Network or server error. Please ensure XAMPP Apache is running.");
+            signInBtn.disabled = false;
+            btnSpan.textContent = origText;
+        }
+    });
+
+    /* ===============================
+       AJAX SIGN UP HANDLER
+    =============================== */
+    const signUpForm = document.getElementById("signUpForm");
+    const signUpBtn = document.getElementById("signUpBtn");
+    const signUpAlert = document.getElementById("signUpAlert");
+
+    signUpForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        clearAlerts();
+
+        const password = document.getElementById("signup-password").value;
+        if (password.length < 4) {
+            showAlert(signUpAlert, "Password must be at least 4 characters long.");
+            return;
         }
 
-    }
+        const btnSpan = signUpBtn.querySelector("span");
+        const origText = btnSpan.textContent;
+        signUpBtn.disabled = true;
+        btnSpan.textContent = "Creating Account...";
+
+        try {
+            const formData = new FormData(signUpForm);
+            const response = await fetch("api/signup.php", {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                showAlert(signUpAlert, result.message || "Account created successfully!", true);
+                setTimeout(() => {
+                    window.location.href = result.redirect || "Home.html";
+                }, 900);
+            } else {
+                showAlert(signUpAlert, result.message || "Registration failed. Please try again.");
+                signUpBtn.disabled = false;
+                btnSpan.textContent = origText;
+            }
+        } catch (err) {
+            showAlert(signUpAlert, "Network or server error. Please ensure XAMPP Apache is running.");
+            signUpBtn.disabled = false;
+            btnSpan.textContent = origText;
+        }
+    });
+
+    /* ===============================
+       AUTO-REDIRECT IF ALREADY LOGGED IN
+    =============================== */
+    fetch("api/user_status.php")
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.isLoggedIn) {
+                const userMsg = `You are signed in as <strong>${data.user.username}</strong>. <a href="Home.html" style="text-decoration:underline;color:inherit;font-weight:600;">Go Home</a> or <a href="Account.html" style="text-decoration:underline;color:inherit;font-weight:600;">View Account</a>.`;
+                showAlert(signInAlert, userMsg, true);
+            }
+        })
+        .catch(() => {});
 
 </script>
 

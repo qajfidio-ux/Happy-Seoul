@@ -133,7 +133,9 @@
         <!-- Account Card -->
         <section class="account-card">
 
-            <form action="Home.html">
+            <div id="accountAlert" class="auth-alert" style="display:none;"></div>
+
+            <form id="accountForm" action="api/account.php" method="POST">
 
                 <div class="account-grid">
 
@@ -165,7 +167,6 @@
                                 id="fname"
                                 name="firstname"
                                 placeholder="Enter your full name"
-                                value="Keila Marie Mauricio"
                                 required
                             >
 
@@ -467,9 +468,14 @@
                         Back to Home
                     </a>
 
-                    <button type="submit" class="save-btn">
+                    <a href="api/logout.php" class="back-btn logout-btn">
+                        <i class='bx bx-log-out'></i>
+                        Log Out
+                    </a>
+
+                    <button type="submit" id="saveBtn" class="save-btn">
                         <i class='bx bx-check'></i>
-                        Save Information
+                        <span>Save Information</span>
                     </button>
 
                 </div>
@@ -532,6 +538,91 @@
         </div>
 
     </footer>
+
+    <script>
+        const accountForm = document.getElementById("accountForm");
+        const accountAlert = document.getElementById("accountAlert");
+        const saveBtn = document.getElementById("saveBtn");
+
+        function showAccountAlert(message, type = "success") {
+            accountAlert.style.display = "flex";
+            accountAlert.className = "auth-alert " + type;
+            const icon = type === "success" ? "bx-check-circle" : (type === "error" ? "bx-error-circle" : "bx-info-circle");
+            accountAlert.innerHTML = `<i class='bx ${icon}'></i> <span>${message}</span>`;
+            accountAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Fetch user data from database
+        async function loadAccountData() {
+            try {
+                const response = await fetch("api/account.php", {
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (response.status === 401) {
+                    showAccountAlert('You are not currently signed in. <a href="user.html?redirect=Account.html" style="text-decoration:underline;font-weight:600;color:inherit;">Click here to Sign In</a> to view and save your details.', 'info');
+                    saveBtn.disabled = true;
+                    return;
+                }
+
+                const data = await response.json();
+                if (data.success && data.user) {
+                    const u = data.user;
+                    if (u.full_name) document.getElementById("fname").value = u.full_name;
+                    if (u.email) document.getElementById("email").value = u.email;
+                    if (u.phone) document.getElementById("phone").value = u.phone;
+                    if (u.address) document.getElementById("address").value = u.address;
+                    if (u.city) document.getElementById("city").value = u.city;
+                    if (u.zip) document.getElementById("zip").value = u.zip;
+                    if (u.card_name) document.getElementById("cname").value = u.card_name;
+                    if (u.card_number) document.getElementById("ccnum").value = u.card_number;
+                    if (u.exp_month) document.getElementById("expmonth").value = u.exp_month;
+                    if (u.exp_year) document.getElementById("expyear").value = u.exp_year;
+
+                    // Update greeting
+                    const headingP = document.querySelector(".page-heading p");
+                    if (headingP) {
+                        headingP.innerHTML = `Signed in as <strong>${u.username}</strong> (${u.email}). Manage your details below.`;
+                    }
+                }
+            } catch (err) {
+                console.error("Could not load account details:", err);
+            }
+        }
+
+        // Handle profile save
+        accountForm.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const btnSpan = saveBtn.querySelector("span");
+            const origText = btnSpan.textContent;
+            saveBtn.disabled = true;
+            btnSpan.textContent = "Saving...";
+
+            try {
+                const formData = new FormData(accountForm);
+                const response = await fetch("api/account.php", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    showAccountAlert(result.message || "Account information saved successfully to database!", "success");
+                } else {
+                    showAccountAlert(result.message || "Failed to save information.", "error");
+                }
+            } catch (err) {
+                showAccountAlert("Error saving account information. Please check your XAMPP connection.", "error");
+            } finally {
+                saveBtn.disabled = false;
+                btnSpan.textContent = origText;
+            }
+        });
+
+        loadAccountData();
+    </script>
+    <script src="auth-nav.js"></script>
 
 </body>
 </html>
