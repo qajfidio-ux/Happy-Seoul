@@ -59,6 +59,20 @@ function getDBConnection(): PDO {
 
         $pdo->exec($tableSql);
 
+        $rateLimitSql = "CREATE TABLE IF NOT EXISTS `login_attempts` (
+            `id` BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            `identifier` VARCHAR(255) NOT NULL,
+            `ip_address` VARCHAR(45) NOT NULL,
+            `attempted_at` DATETIME NOT NULL,
+            `success` TINYINT(1) NOT NULL DEFAULT 0,
+
+            INDEX `idx_identifier_ip_time` (`identifier`, `ip_address`, `attempted_at`),
+            INDEX `idx_attempted_at` (`attempted_at`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+
+        $pdo->exec($rateLimitSql);
+
+
         return $pdo;
 
     } catch (PDOException $e) {
