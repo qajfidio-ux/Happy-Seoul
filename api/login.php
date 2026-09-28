@@ -23,12 +23,53 @@ if (empty($loginIdentifier) || empty($password)) {
 
 $pdo = getDBConnection();
 
+//rate limit, you can configure it
+$maxAttempts = 5;
+$timeLimit = 15;
+
+
+$IP = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$TargetAccount = strtolower($loginIdentifier);
+
+// Count recent failed attempts
+$RLStmt = $pdo->prepare("
+    SELECT COUNT(*) AS failed_attempts
+    FROM login_attempts
+    WHERE identifier = ?
+    AND ip_address = ?
+    AND success = 0
+    AND attempted_at >= DATE_SUB(NOW(), INTERVAL ? MINUTE)
+");
+
+$RLStmt->execute([$TargetAccount, $IP, $timeLimit]);
+
+$failedAttempts = (int)$RLStmt->fetch()['failed_attempts'];
+
+// Block if limit is reached
+if ($failedAttempts >= $maxAttempts) {
+    send_json([
+        'success' => false,
+        'message' => 'Too many login attempts. Please try again in 15 minutes.'
+    ], 429);
+}
+
+
 // Find user by username or email
 $stmt = $pdo->prepare("SELECT id, username, email, password FROM users WHERE username = ? OR email = ? LIMIT 1");
 $stmt->execute([$loginIdentifier, $loginIdentifier]);
 $user = $stmt->fetch();
 
 if (!$user || !password_verify($password, $user['password'])) {
+    //records failed attempts
+    $attemptStmt = $pdo->prepare("
+        INSERT INTO login_attempts
+        (identifier, ip_address, attempted_at, success)
+        VALUES
+        (?, ?, NOW(), 0)
+    ");
+
+    $attemptStmt->execute([$TargetAccount, $IP]);
+
     send_json(['success' => false, 'message' => 'Incorrect username or password. Please try again.'], 401);
 }
 
@@ -38,6 +79,18 @@ if (password_needs_rehash($user['password'], PASSWORD_DEFAULT)) {
     $updateStmt = $pdo->prepare("UPDATE users SET password = ? WHERE id = ?");
     $updateStmt->execute([$newHash, $user['id']]);
 }
+
+//clears attempts
+$clearStmt = $pdo->prepare("
+    DELETE FROM login_attempts
+    WHERE identifier = ?
+      AND ip_address = ?
+");
+
+$clearStmt->execute([
+    $TargetAccount,
+    $IP
+]);
 
 // Establish session
 ensure_session_started();
