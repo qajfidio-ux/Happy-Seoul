@@ -16,7 +16,7 @@
                 const username = data.user.username;
 
                 // Update account icon links to point to Account.html
-                const accountIcons = document.querySelectorAll('a[href="User.html"], a[href="user.html"]');
+                const accountIcons = document.querySelectorAll('a[href="user.html"], a[href="user.html"]');
                 accountIcons.forEach(link => {
                     link.href = "Account.html";
                     link.setAttribute("title", "Signed in as " + username);

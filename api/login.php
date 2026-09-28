@@ -62,7 +62,7 @@ if ($remember) {
 send_json([
     'success'  => true,
     'message'  => 'Welcome back, ' . htmlspecialchars($user['username']) . '!',
-    'redirect' => 'Home.html',
+    'redirect' => 'index.html',
     'user'     => [
         'id'       => (int)$user['id'],
         'username' => $user['username'],

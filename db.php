@@ -1,14 +1,13 @@
 <?php
 /**
- * db.php - Database connection & auto-bootstrapping for Happy Seoul
- * Designed for XAMPP (Apache + MariaDB/MySQL)
+ * db.php - Database connection for Happy Seoul (InfinityFree)
  */
 
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'sql102.infinityfree.com');
 define('DB_PORT', 3306);
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'happy_seoul_db');
+define('DB_USER', 'if0_42915284');
+define('DB_PASS', 'F7h6gIzE8RHGw');
+define('DB_NAME', 'if0_42915284_db');
 
 function getDBConnection(): PDO {
     static $pdo = null;
@@ -19,18 +18,6 @@ function getDBConnection(): PDO {
     $charset = 'utf8mb4';
     
     try {
-        // First connect to MySQL server without database specified to ensure DB exists
-        $serverDsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";charset=" . $charset;
-        $tempPdo = new PDO($serverDsn, DB_USER, DB_PASS, [
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES   => false,
-        ]);
-
-        // Auto-create database if it does not exist
-        $tempPdo->exec("CREATE DATABASE IF NOT EXISTS `" . DB_NAME . "` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-
-        // Now connect to the specific database
         $dbDsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . $charset;
         $pdo = new PDO($dbDsn, DB_USER, DB_PASS, [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -65,7 +52,7 @@ function getDBConnection(): PDO {
         http_response_code(500);
         echo json_encode([
             'success' => false,
-            'message' => 'Database connection error. Please ensure MySQL is running in XAMPP. Detail: ' . $e->getMessage()
+            'message' => 'Database connection error. Detail: ' . $e->getMessage()
         ]);
         exit;
     }
@@ -76,7 +63,6 @@ function getDBConnection(): PDO {
  */
 function ensure_session_started(): void {
     if (session_status() === PHP_SESSION_NONE) {
-        // 30 days lifetime if remember me
         ini_set('session.cookie_httponly', 1);
         session_start();
     }
@@ -104,4 +90,3 @@ function get_request_data(): array {
     }
     return $_POST;
 }
-

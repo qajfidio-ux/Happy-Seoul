@@ -1,9 +1,9 @@
 -- Happy Seoul Database Schema
 -- Run this in phpMyAdmin or let db.php initialize it automatically.
 
-CREATE DATABASE IF NOT EXISTS `happy_seoul_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- CREATE DATABASE IF NOT EXISTS `happy_seoul_db` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE `happy_seoul_db`;
+-- USE `happy_seoul_db`;
 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

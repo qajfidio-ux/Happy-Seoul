@@ -28,8 +28,8 @@
         <section class="login-panel">
 
             <div class="brand">
-                <a href="Home.html">
-                    <img src="logo.PNG" alt="Happy Seoul Logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Happy Seoul Logo">
                 </a>
             </div>
 
@@ -350,7 +350,7 @@
             if (result.success) {
                 showAlert(signInAlert, result.message || "Signed in successfully!", true);
                 setTimeout(() => {
-                    const redirectUrl = urlParams.get("redirect") || result.redirect || "Home.html";
+                    const redirectUrl = urlParams.get("redirect") || result.redirect || "index.html";
                     window.location.href = redirectUrl;
                 }, 700);
             } else {
@@ -400,7 +400,7 @@
             if (result.success) {
                 showAlert(signUpAlert, result.message || "Account created successfully!", true);
                 setTimeout(() => {
-                    window.location.href = result.redirect || "Home.html";
+                    window.location.href = result.redirect || "index.html";
                 }, 900);
             } else {
                 showAlert(signUpAlert, result.message || "Registration failed. Please try again.");
@@ -421,7 +421,7 @@
         .then(res => res.json())
         .then(data => {
             if (data && data.isLoggedIn) {
-                const userMsg = `You are signed in as <strong>${data.user.username}</strong>. <a href="Home.html" style="text-decoration:underline;color:inherit;font-weight:600;">Go Home</a> or <a href="Account.html" style="text-decoration:underline;color:inherit;font-weight:600;">View Account</a>.`;
+                const userMsg = `You are signed in as <strong>${data.user.username}</strong>. <a href="index.html" style="text-decoration:underline;color:inherit;font-weight:600;">Go Home</a> or <a href="Account.html" style="text-decoration:underline;color:inherit;font-weight:600;">View Account</a>.`;
                 showAlert(signInAlert, userMsg, true);
             }
         })

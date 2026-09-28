@@ -72,7 +72,7 @@ $_SESSION['email']    = $email;
 send_json([
     'success'  => true,
     'message'  => 'Welcome to Happy Seoul, ' . htmlspecialchars($username) . '! Account created successfully.',
-    'redirect' => 'Home.html',
+    'redirect' => 'index.html',
     'user'     => [
         'id'       => $newUserId,
         'username' => $username,
