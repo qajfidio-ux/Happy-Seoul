@@ -153,7 +153,11 @@
                             </div>
                         </div>
 
-
+<div class="form-group">
+    <label for="current_password">Current Password (required to save changes)</label>
+    <input type="password" id="current_password" name="current_password"
+           autocomplete="current-password" required>
+</div>
                         <!-- Full Name -->
                         <div class="form-group">
 
@@ -606,9 +610,10 @@
                     headers: { "Accept": "application/json" }
                 });
 
-                const result = await response.json();
+               const result = await response.json();
                 if (result.success) {
                     showAccountAlert(result.message || "Account information saved successfully to database!", "success");
+                    document.getElementById("current_password").value = "";   // <-- add this line
                 } else {
                     showAccountAlert(result.message || "Failed to save information.", "error");
                 }

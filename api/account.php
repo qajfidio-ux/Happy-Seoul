@@ -34,6 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = get_request_data();
 
+    $currentPassword = $data['current_password'] ?? '';
+    $pwStmt = $pdo->prepare("SELECT password FROM users WHERE id = ? LIMIT 1");
+    $pwStmt->execute([$userId]);
+    $row = $pwStmt->fetch();
+
+if (!$row || $currentPassword === '' || !password_verify($currentPassword, $row['password'])) {
+    send_json(['success' => false, 'message' => 'Current password required.'], 403);
+}
+
     $fullName   = trim($data['firstname'] ?? $data['full_name'] ?? '');
     $phone      = trim($data['phone'] ?? '');
     $address    = trim($data['address'] ?? '');

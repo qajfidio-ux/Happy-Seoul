@@ -29,28 +29,19 @@ $timeLimit = 15;
 
 
 $IP = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$TargetAccount = strtolower($loginIdentifier);
+$TargetAccount = substr(strtolower($loginIdentifier), 0, 255); // also avoids a DB error on huge input
 
-// Count recent failed attempts
 $RLStmt = $pdo->prepare("
-    SELECT COUNT(*) AS failed_attempts
-    FROM login_attempts
-    WHERE identifier = ?
-    AND ip_address = ?
-    AND success = 0
-    AND attempted_at >= DATE_SUB(NOW(), INTERVAL ? MINUTE)
+    SELECT COUNT(*) FROM login_attempts
+    WHERE ip_address = ? AND success = 0
+      AND attempted_at >= DATE_SUB(NOW(), INTERVAL ? MINUTE)
 ");
+$RLStmt->execute([$IP, $timeLimit]);
+$failedAttempts = (int)$RLStmt->fetchColumn();
 
-$RLStmt->execute([$TargetAccount, $IP, $timeLimit]);
-
-$failedAttempts = (int)$RLStmt->fetch()['failed_attempts'];
-
-// Block if limit is reached
 if ($failedAttempts >= $maxAttempts) {
-    send_json([
-        'success' => false,
-        'message' => 'Too many login attempts. Please try again in 15 minutes.'
-    ], 429);
+    header('Retry-After: ' . ($timeLimit * 60));
+    send_json(['success' => false, 'message' => 'Too many login attempts. Please try again in 15 minutes.'], 429);
 }
 
 
@@ -94,23 +85,12 @@ $clearStmt->execute([
 
 // Establish session
 ensure_session_started();
-$_SESSION['user_id']  = (int)$user['id'];
+session_regenerate_id(true);
+$_SESSION['user_id'] = (int)$user['id'];
 $_SESSION['username'] = $user['username'];
 $_SESSION['email']    = $user['email'];
 
-if ($remember) {
-    // Extend session cookie to 30 days
-    $params = session_get_cookie_params();
-    setcookie(
-        session_name(),
-        session_id(),
-        time() + (86400 * 30),
-        $params['path'],
-        $params['domain'],
-        $params['secure'],
-        $params['httponly']
-    );
-}
+
 
 send_json([
     'success'  => true,

@@ -62,24 +62,35 @@ function getDBConnection(): PDO {
 
         return $pdo;
 
-    } catch (PDOException $e) {
-        http_response_code(500);
-        echo json_encode([
-            'success' => false,
-            'message' => 'Database connection error. Detail: ' . $e->getMessage()
-        ]);
-        exit;
-    }
+} catch (PDOException $e) {
+    error_log('DB error: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Server error. Please try again later.']);
+    exit;
+}
 }
 
 /**
  * Start session safely if not already started
  */
 function ensure_session_started(): void {
-    if (session_status() === PHP_SESSION_NONE) {
-        ini_set('session.cookie_httponly', 1);
-        session_start();
-    }
+    if (session_status() !== PHP_SESSION_NONE) return;
+
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+
+    ini_set('session.use_strict_mode', 1);
+    ini_set('session.use_only_cookies', 1);
+    ini_set('session.gc_maxlifetime', 1800);
+
+    session_set_cookie_params([
+        'lifetime' => 1800,
+        'path'     => '/',
+        'secure'   => $isHttps,   // stays false on http://localhost (XAMPP) so you can still test
+        'httponly' => true,
+        'samesite' => 'Strict',
+    ]);
+    session_start();
 }
 
 /**

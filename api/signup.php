@@ -34,8 +34,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_json(['success' => false, 'message' => 'Please enter a valid email address.'], 400);
 }
 
-if (strlen($password) < 4) {
-    send_json(['success' => false, 'message' => 'Password must be at least 4 characters long.'], 400);
+if (strlen($password) < 8) {
+    send_json(['success' => false, 'message' => 'Password must be at least 8 characters long.'], 400);
 }
 
 $pdo = getDBConnection();
@@ -63,11 +63,11 @@ $insertStmt->execute([$username, $email, $hashedPassword]);
 
 $newUserId = (int)$pdo->lastInsertId();
 
+
 // Establish session
 ensure_session_started();
+session_regenerate_id(true);
 $_SESSION['user_id']  = $newUserId;
-$_SESSION['username'] = $username;
-$_SESSION['email']    = $email;
 
 send_json([
     'success'  => true,
