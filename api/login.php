@@ -23,7 +23,6 @@ if (empty($loginIdentifier) || empty($password)) {
 
 $pdo = getDBConnection();
 
-//rate limit, you can configure it
 $maxAttempts = 5;
 $timeLimit = 15;
 
