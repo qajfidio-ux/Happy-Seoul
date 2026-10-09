@@ -310,6 +310,11 @@
     /* ===============================
        ALERTS HELPER
     =============================== */
+    function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+}
     function showAlert(alertEl, message, isSuccess = false) {
         alertEl.style.display = "flex";
         alertEl.className = "auth-alert " + (isSuccess ? "success" : "error");
@@ -421,7 +426,7 @@
         .then(res => res.json())
         .then(data => {
             if (data && data.isLoggedIn) {
-                const userMsg = `You are signed in as <strong>${data.user.username}</strong>. <a href="index.html" style="text-decoration:underline;color:inherit;font-weight:600;">Go Home</a> or <a href="Account.html" style="text-decoration:underline;color:inherit;font-weight:600;">View Account</a>.`;
+                const userMsg = `You are signed in as <strong>${escapeHTML(data.user.username)}</strong>. <a href="index.html" style="text-decoration:underline;color:inherit;font-weight:600;">Go Home</a> or <a href="Account.html" style="text-decoration:underline;color:inherit;font-weight:600;">View Account</a>.`;
                 showAlert(signInAlert, userMsg, true);
             }
         })
