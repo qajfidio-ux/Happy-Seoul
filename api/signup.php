@@ -26,10 +26,9 @@ if (strlen($username) < 3) {
     send_json(['success' => false, 'message' => 'Username must be at least 3 characters long.'], 400);
 }
 
-// TEMP — disabled for authorized Red Team demo (IT41S5 IAS2 project). Re-enabled immediately after recording.
-// if (!preg_match('/^[a-zA-Z0-9_.-]+$/', $username)) {
-//     send_json(['success' => false, 'message' => 'Username can only contain letters, numbers, underscores, and hyphens.'], 400);
-// }
+ if (!preg_match('/^[a-zA-Z0-9_.-]+$/', $username)) {
+     send_json(['success' => false, 'message' => 'Username can only contain letters, numbers, underscores, and hyphens.'], 400);
+ }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     send_json(['success' => false, 'message' => 'Please enter a valid email address.'], 400);
